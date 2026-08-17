@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simple, fast, and reliable URL Shortener service with click analytics.">
+    <title>URL Shortener</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-glow"></div>
+
+    <main class="container">
+        <header class="header">
+            <div class="logo-icon">🔗</div>
+            <h1>URL SHORTENER</h1>
+            <p class="subtitle">Turn long, messy URLs into concise, trackable short links.</p>
+        </header>
+
+        <section class="card shorten-card">
+            <form id="shortenForm" class="shorten-form">
+                <div class="input-group">
+                    <input 
+                        type="url" 
+                        id="originalUrl" 
+                        placeholder="https://example.com/very-long-url-path" 
+                        required 
+                        autocomplete="off"
+                    />
+                    <button type="submit" id="shortenBtn" class="btn btn-primary">
+                        <span>Shorten URL</span>
+                    </button>
+                </div>
+            </form>
+
+            <div id="resultContainer" class="result-container hidden">
+                <p class="result-label">Your shortened URL:</p>
+                <div class="result-box">
+                    <input type="text" id="shortUrlOutput" readonly />
+                    <button id="copyBtn" class="btn btn-secondary">
+                        <span id="copyBtnText">Copy</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card stats-card">
+            <h2>URL Analytics & Statistics</h2>
+            <p class="card-desc">Enter a short code to view click count and access details.</p>
+
+            <form id="statsForm" class="stats-form">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="shortCodeInput" 
+                        placeholder="Enter short code (e.g. aB72xK)" 
+                        required 
+                        autocomplete="off"
+                    />
+                    <button type="submit" id="statsBtn" class="btn btn-outline">
+                        <span>Get Stats</span>
+                    </button>
+                </div>
+            </form>
+
+            <div id="statsResult" class="stats-result hidden">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Short Code</span>
+                        <span class="stat-value" id="statShortCode">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Clicks</span>
+                        <span class="stat-value highlight" id="statClickCount">0</span>
+                    </div>
+                    <div class="stat-item full-width">
+                        <span class="stat-label">Original URL</span>
+                        <a href="#" target="_blank" rel="noopener" class="stat-value link" id="statOriginalUrl">-</a>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Created At</span>
+                        <span class="stat-value" id="statCreatedAt">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Last Accessed</span>
+                        <span class="stat-value" id="statLastAccessed">-</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast hidden">
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

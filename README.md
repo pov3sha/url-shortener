@@ -20,7 +20,6 @@ A simple, complete, and deployable URL Shortener web application built with **Ja
 * **In-Memory Rate Limiting**: Restricts requests to 10 short URL creations per minute per IP address.
 * **PostgreSQL Persistence**: Automatically managed database schema using Hibernate JPA.
 * **Docker & Docker Compose**: Single-command containerized local environment.
-* **Railway Ready**: Native support for Railway dynamic port binding (`PORT`) and database environment variables.
 
 ---
 
@@ -35,20 +34,5 @@ A simple, complete, and deployable URL Shortener web application built with **Ja
 | **HTML / CSS / JavaScript** | Lightweight Frontend Interface |
 | **Docker & Docker Compose** | Containerization & Local Multi-Container Setup |
 | **Maven** | Dependency Management & Build Automation |
-| **Railway** | Cloud Deployment Platform |
 
----
 
-## Railway Deployment Instructions
-
-1. Push your project repository:
-   ```bash
-   git add .
-   git commit -m "Add full project source code"
-   git push -u origin main
-   ```
-
-2. Open [Railway](https://railway.app/).
-3. Connect your repository `pov3sha/url-shortener`.
-4. Add PostgreSQL database service in Railway.
-5. In Service Variables, set `APP_BASE_URL` to your Railway domain.
